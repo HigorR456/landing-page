@@ -16,7 +16,7 @@ const NavBar = () => {
                     <nav className='flex justify-around leading-[120px] font-semibold'>
 
                         <Link href='/'
-                        className='flex text-5xl leading-[120px]'>
+                        className='flex text-xl leading-[120px] sm:text-5xl sm:leading-[120px]'>
                             <AiOutlineCar className='h-[120px]'/>
                             <span>Landing Page</span>
                         </Link>
