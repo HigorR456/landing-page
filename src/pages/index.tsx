@@ -78,7 +78,7 @@ export default function Home() {
         <section className='flex flex-wrap items-center justify-center h-[70rem] bg-secondarybg text-white'>
           <h1 className='text-center w-full h-[1rem] mt-auto font-bold text-2xl mb-2'>Compre agora</h1>
 
-          <div className='flex flex-wrap items-center justify-evenly  m-2 xl:m-48 2xl:m-80'>
+          <div className='flex flex-wrap items-center justify-evenly  mx-2 xl:mx-48 2xl:mx-80'>
             <div className='h-[8rem] md:h-[14rem] lg:h-[16rem] m-1 bg-white/10 shadow-2xl blur-[1px] hover:blur-0 overflow-hidden'>
               <img src='/carimg1.jpg' alt='car image'
               className='h-full hover:scale-125 transition duration-500 ease-in-out'></img>
@@ -111,6 +111,11 @@ export default function Home() {
 
             <div className='h-[8rem] md:h-[14rem] lg:h-[16rem] m-1 bg-white/10 shadow-2xl blur-[1px] hover:blur-0 overflow-hidden'>
               <img src='/carimg7.jpg' alt='car image'
+              className='h-full hover:scale-125 transition duration-500 ease-in-out'></img>
+            </div>
+
+            <div className='h-[8rem] md:h-[14rem] lg:h-[16rem] m-1 bg-white/10 shadow-2xl blur-[1px] hover:blur-0 overflow-hidden'>
+              <img src='/carimg1.jpg' alt='car image'
               className='h-full hover:scale-125 transition duration-500 ease-in-out'></img>
             </div>
 
