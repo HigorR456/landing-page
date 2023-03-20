@@ -29,6 +29,10 @@ module.exports = {
           '50%': {marginLeft: 'auto', marginRight: '0%', opacity: '0.9'},
           '100%': {marginLeft: 'auto', marginRight: '50%', opacity: '0'},
         },
+        slideBoxTransition: {
+          '0%': {marginLeft: '-55%'},
+          '100%': {marginLeft: '0%'},
+        }
       },
     },
     animation: {
@@ -37,7 +41,8 @@ module.exports = {
       'gif-transition3': 'gifTransition 3s linear',
       'sm-gif-transition': 'smGifTransition 1.8s linear',
       'sm-gif-transition2': 'smGifTransition 2.5s linear',
-      'sm-gif-transition3': 'smGifTransition 2s linear'
+      'sm-gif-transition3': 'smGifTransition 2s linear',
+      'slide-box-transition': 'slideBoxTransition 2s ease-in-out forwards'
     },
   },
   plugins: [],

@@ -8,10 +8,7 @@ import {AiOutlineWhatsApp, AiOutlinePhone, AiOutlineCar,
 export default function Home() {
 
   const [scrollCount, setScrollCount] = useState<number>(0);
-  const [gifClass, setGifClass] = useState<Array<string>>([
-  'h-60 ml-auto mr-[-100%] rounded-full blur-[0.5px] opacity-[0.9]', 
-  'h-60 ml-auto mr-[-100%] rounded-full blur-[0.5px] opacity-[0.9]', 
-  'h-60 ml-auto mr-[-100%] rounded-full blur-[0.5px] opacity-[0.9]']);
+  const [animationClass, setAnimationClass] = useState<Array<string>>(['h-60 ml-auto mr-[-100%] sm:animate-gif-transition animate-sm-gif-transition rounded-full blur-[0.5px] opacity-[0.9]', 'h-60 ml-auto mr-[-100%] sm:animate-gif-transition2 animate-sm-gif-transition2 rounded-full blur-[0.5px] opacity-[0.9]', 'h-60 ml-auto mr-[-100%] sm:animate-gif-transition3 animate-sm-gif-transition3 rounded-full blur-[0.5px] opacity-[0.9]','absolute flex flex-wrap justify-center items-center h-[38rem] w-[60%] ml-[-55%] animate-slide-box-transition -translate-y-[110%] bg-primarybox/10 shadow-2xl backdrop-blur']);
 
   useEffect(() => {
     console.log('useeffect')
@@ -20,13 +17,13 @@ export default function Home() {
     };
 
     const handleScroll = () => {
-      if (scrollCount > 10 && scrollCount < 700) {
-        setGifClass(['h-60 ml-auto mr-[-100%] sm:animate-gif-transition animate-sm-gif-transition rounded-full blur-[0.5px] opacity-[0.9]', 'h-60 ml-auto mr-[-100%] sm:animate-gif-transition2 animate-sm-gif-transition2 rounded-full blur-[0.5px] opacity-[0.9]', 'h-60 ml-auto mr-[-100%] sm:animate-gif-transition3 animate-sm-gif-transition3 rounded-full blur-[0.5px] opacity-[0.9]']);
-      } else if (scrollCount > 700) {
-        setGifClass([
-          'h-60 ml-auto mr-[-100%] rounded-full blur-[0.5px] opacity-[0.9]', 
-          'h-60 ml-auto mr-[-100%] rounded-full blur-[0.5px] opacity-[0.9]', 
-          'h-60 ml-auto mr-[-100%] rounded-full blur-[0.5px] opacity-[0.9]'])
+      if (scrollCount > 650) {
+        setAnimationClass(['h-60 ml-auto mr-[-100%] rounded-full blur-[0.5px] opacity-[0.9]', 
+        'h-60 ml-auto mr-[-100%] rounded-full blur-[0.5px] opacity-[0.9]', 
+        'h-60 ml-auto mr-[-100%] rounded-full blur-[0.5px] opacity-[0.9]', 'absolute flex flex-wrap justify-center items-center h-[38rem] w-[60%] ml-[-55%] -translate-y-[110%] bg-primarybox/10 shadow-2xl backdrop-blur']);
+      } else if (scrollCount > -1 && scrollCount < 650) {
+        setAnimationClass([
+          'h-60 ml-auto mr-[-100%] sm:animate-gif-transition animate-sm-gif-transition rounded-full blur-[0.5px] opacity-[0.9]', 'h-60 ml-auto mr-[-100%] sm:animate-gif-transition2 animate-sm-gif-transition2 rounded-full blur-[0.5px] opacity-[0.9]', 'h-60 ml-auto mr-[-100%] sm:animate-gif-transition3 animate-sm-gif-transition3 rounded-full blur-[0.5px] opacity-[0.9]', 'absolute flex flex-wrap justify-center items-center h-[38rem] w-[60%] ml-[-55%] animate-slide-box-transition -translate-y-[110%] bg-primarybox/10 shadow-2xl backdrop-blur'])
       }
     }
     window.addEventListener('scroll', handleCounter);
@@ -51,18 +48,18 @@ export default function Home() {
           
           <div className='overflow-hidden h-[45rem]'>
            <img src='./cargif1.gif' alt='car gif'
-            className={gifClass[0]}></img>
+            className={animationClass[0]}></img>
 
             <img src='./cargif2.gif' alt='car gif' 
-            className={gifClass[1]}></img>
+            className={animationClass[1]}></img>
 
             <img src='./cargif3.gif' alt='car gif'
-            className={gifClass[2]}></img>
+            className={animationClass[2]}></img>
           </div>
 
-          <div className='absolute flex flex-wrap justify-center items-center h-[38rem] w-[50%] -translate-y-[110%] bg-primarybox/10 shadow-2xl backdrop-blur'>
+          <div className={animationClass[3]}>
 
-            <div className='relative flex w-5/6 h-[60%] sm:h-[50%] text-white'>
+            <div className='relative flex w-5/6 h-[60%] sm:h-[5%] text-white'>
               <span className='self-center'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras faucibus ullamcorper accumsan. Nulla facilisis nulla sit amet mauris pharetra posuere. Nulla aliquam imperdiet lorem.</span>
             </div>
             
@@ -78,41 +75,41 @@ export default function Home() {
 
         </section>
 
-        <section className='flex flex-wrap items-center justify-center h-[60rem] bg-secondarybg text-white'>
+        <section className='flex flex-wrap items-center justify-center h-[70rem] bg-secondarybg text-white'>
           <h1 className='text-center w-full h-[1rem] mt-auto font-bold text-2xl mb-2'>Compre agora</h1>
 
-          <div className='flex flex-wrap items-center justify-evenly  m-2 xl:m-6 2xl:m-60'>
-            <div className='h-[7rem] md:h-[14rem] lg:h-[16rem] m-2 bg-white/10 shadow-2xl blur-[1px] hover:blur-0 overflow-hidden'>
+          <div className='flex flex-wrap items-center justify-evenly  m-2 xl:m-48 2xl:m-80'>
+            <div className='h-[8rem] md:h-[14rem] lg:h-[16rem] m-1 bg-white/10 shadow-2xl blur-[1px] hover:blur-0 overflow-hidden'>
               <img src='/carimg1.jpg' alt='car image'
               className='h-full hover:scale-125 transition duration-500 ease-in-out'></img>
             </div>
 
-            <div className='h-[7rem] md:h-[14rem] lg:h-[16rem] m-2 bg-white/10 shadow-2xl blur-[1px] hover:blur-0 overflow-hidden'>
+            <div className='h-[8rem] md:h-[14rem] lg:h-[16rem] m-1 bg-white/10 shadow-2xl blur-[1px] hover:blur-0 overflow-hidden'>
               <img src='/carimg2.jpg' alt='car image'
               className='h-full hover:scale-125 transition duration-500 ease-in-out'></img>
             </div>
 
-            <div className='h-[7rem] md:h-[14rem] lg:h-[16rem] m-2 bg-white/10 shadow-2xl blur-[1px] hover:blur-0 overflow-hidden'>
+            <div className='h-[8rem] md:h-[14rem] lg:h-[16rem] m-1 bg-white/10 shadow-2xl blur-[1px] hover:blur-0 overflow-hidden'>
               <img src='/carimg3.jpg' alt='car image'
               className='h-full hover:scale-125 transition duration-500 ease-in-out'></img>
             </div>
 
-            <div className='h-[7rem] md:h-[14rem] lg:h-[16rem] m-2 bg-white/10 shadow-2xl blur-[1px] hover:blur-0 overflow-hidden'>
+            <div className='h-[8rem] md:h-[14rem] lg:h-[16rem] m-1 bg-white/10 shadow-2xl blur-[1px] hover:blur-0 overflow-hidden'>
               <img src='/carimg4.jpg' alt='car image'
               className='h-full hover:scale-125 transition duration-500 ease-in-out'></img>
             </div>
 
-            <div className='h-[7rem] md:h-[14rem] lg:h-[16rem] m-2 bg-white/10 shadow-2xl blur-[1px] hover:blur-0 overflow-hidden'>
+            <div className='h-[8rem] md:h-[14rem] lg:h-[16rem] m-1 bg-white/10 shadow-2xl blur-[1px] hover:blur-0 overflow-hidden'>
               <img src='/carimg5.jpg' alt='car image'
               className='h-full hover:scale-125 transition duration-500 ease-in-out'></img>
             </div>
 
-            <div className='h-[7rem] md:h-[14rem] lg:h-[16rem] m-2 bg-white/10 shadow-2xl blur-[1px] hover:blur-0 overflow-hidden'>
+            <div className='h-[8rem] md:h-[14rem] lg:h-[16rem] m-1 bg-white/10 shadow-2xl blur-[1px] hover:blur-0 overflow-hidden'>
               <img src='/carimg6.jpg' alt='car image'
               className='h-full hover:scale-125 transition duration-500 ease-in-out'></img>
             </div>
 
-            <div className='h-[7rem] md:h-[14rem] lg:h-[16rem] m-2 bg-white/10 shadow-2xl blur-[1px] hover:blur-0 overflow-hidden'>
+            <div className='h-[8rem] md:h-[14rem] lg:h-[16rem] m-1 bg-white/10 shadow-2xl blur-[1px] hover:blur-0 overflow-hidden'>
               <img src='/carimg7.jpg' alt='car image'
               className='h-full hover:scale-125 transition duration-500 ease-in-out'></img>
             </div>
