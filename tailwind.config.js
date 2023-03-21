@@ -32,7 +32,17 @@ module.exports = {
         slideBoxTransition: {
           '0%': {marginLeft: '-55%'},
           '100%': {marginLeft: '0%'},
-        }
+        },
+        arrowTransition: {
+          '0%': {opacity: '1'},
+          '99%': {opacity: '0'},
+          '100%': {opacity: '0', visibility: 'hidden'},
+        },
+        arrowTransitionReverse: {
+          '0%': {opacity: '0', visibility: 'hidden'},
+          '1%': {opacity: '0'},
+          '100%': {opacity: '1'},
+        },
       },
     },
     animation: {
@@ -42,7 +52,9 @@ module.exports = {
       'sm-gif-transition': 'smGifTransition 1.8s linear',
       'sm-gif-transition2': 'smGifTransition 2.5s linear',
       'sm-gif-transition3': 'smGifTransition 2s linear',
-      'slide-box-transition': 'slideBoxTransition 2s ease-in-out forwards'
+      'slide-box-transition': 'slideBoxTransition 2s ease-in-out forwards',
+      'arrow-transition': 'arrowTransition 1s linear forwards',
+      'arrow-transition-reverse': 'arrowTransitionReverse 1s linear forwards',
     },
   },
   plugins: [],

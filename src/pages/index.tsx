@@ -2,13 +2,23 @@ import {useState, useEffect} from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 import NavBar from '../components/NavBar';
-import {AiOutlineWhatsApp, AiOutlinePhone, AiOutlineCar, 
-  AiOutlineHome, AiOutlineFileSearch, AiOutlineInfoCircle} from 'react-icons/ai'
+import Footer from '../components/Footer';
+import {AiOutlineWhatsApp} from 'react-icons/ai'
+import {MdKeyboardArrowDown} from 'react-icons/md'
 
 export default function Home() {
 
   const [scrollCount, setScrollCount] = useState<number>(0);
   const [animationClass, setAnimationClass] = useState<Array<string>>(['h-60 ml-auto mr-[-100%] sm:animate-gif-transition animate-sm-gif-transition rounded-full blur-[0.5px] opacity-[0.9]', 'h-60 ml-auto mr-[-100%] sm:animate-gif-transition2 animate-sm-gif-transition2 rounded-full blur-[0.5px] opacity-[0.9]', 'h-60 ml-auto mr-[-100%] sm:animate-gif-transition3 animate-sm-gif-transition3 rounded-full blur-[0.5px] opacity-[0.9]','absolute flex flex-wrap justify-center items-center h-[38rem] w-[60%] ml-[-55%] animate-slide-box-transition -translate-y-[110%] bg-primarybox/10 shadow-2xl backdrop-blur']);
+  const [arrowBtn, setArrowBtn] = useState<string>('absolute flex items-center top-[55.25rem] h-[66px] w-[100px] hover:bg-white/10 rounded-full transition duration-300 ease-in-out animate-arrow-transition-reverse')
+
+  const handleArrowBtn = () => {
+    setArrowBtn('absolute flex items-center top-[55.25rem] h-[66px] w-[100px] hover:bg-white/10 rounded-full transition duration-300 ease-in-out animate-arrow-transition')
+  }
+
+  const homeStart = () => {
+    setScrollCount(0)
+  }
 
   useEffect(() => {
     console.log('useeffect')
@@ -21,11 +31,15 @@ export default function Home() {
         setAnimationClass(['h-60 ml-auto mr-[-100%] rounded-full blur-[0.5px] opacity-[0.9]', 
         'h-60 ml-auto mr-[-100%] rounded-full blur-[0.5px] opacity-[0.9]', 
         'h-60 ml-auto mr-[-100%] rounded-full blur-[0.5px] opacity-[0.9]', 'absolute flex flex-wrap justify-center items-center h-[38rem] w-[60%] ml-[-55%] -translate-y-[110%] bg-primarybox/10 shadow-2xl backdrop-blur']);
-      } else if (scrollCount > -1 && scrollCount < 650) {
+        setArrowBtn('absolute flex items-center top-[55.25rem] h-[66px] w-[100px] hover:bg-white/10 rounded-full transition duration-300 ease-in-out animate-arrow-transition')
+      } else if (scrollCount > -1 && scrollCount < 500) {
         setAnimationClass([
-          'h-60 ml-auto mr-[-100%] sm:animate-gif-transition animate-sm-gif-transition rounded-full blur-[0.5px] opacity-[0.9]', 'h-60 ml-auto mr-[-100%] sm:animate-gif-transition2 animate-sm-gif-transition2 rounded-full blur-[0.5px] opacity-[0.9]', 'h-60 ml-auto mr-[-100%] sm:animate-gif-transition3 animate-sm-gif-transition3 rounded-full blur-[0.5px] opacity-[0.9]', 'absolute flex flex-wrap justify-center items-center h-[38rem] w-[60%] ml-[-55%] animate-slide-box-transition -translate-y-[110%] bg-primarybox/10 shadow-2xl backdrop-blur'])
+          'h-60 ml-auto mr-[-100%] sm:animate-gif-transition animate-sm-gif-transition rounded-full blur-[0.5px] opacity-[0.9]', 'h-60 ml-auto mr-[-100%] sm:animate-gif-transition2 animate-sm-gif-transition2 rounded-full blur-[0.5px] opacity-[0.9]', 'h-60 ml-auto mr-[-100%] sm:animate-gif-transition3 animate-sm-gif-transition3 rounded-full blur-[0.5px] opacity-[0.9]', 'absolute flex flex-wrap justify-center items-center h-[38rem] w-[60%] ml-[-55%] animate-slide-box-transition -translate-y-[110%] bg-primarybox/10 shadow-2xl backdrop-blur']);
+          setArrowBtn('absolute flex items-center top-[55.25rem] h-[66px] w-[100px] hover:bg-white/10 rounded-full transition duration-300 ease-in-out animate-arrow-transition-reverse');
       }
     }
+
+    
     window.addEventListener('scroll', handleCounter);
     window.addEventListener('scroll', handleScroll);
   }, [scrollCount]);
@@ -40,13 +54,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <NavBar />
+      <NavBar homeStart={homeStart} />
 
       <main className='h-full bg-tertiarybg'>
         
         <section className='h-[45rem]'>
           
-          <div className='overflow-hidden h-[45rem]'>
+          <div className='overflow-hidden my-0'>
            <img src='./cargif1.gif' alt='car gif'
             className={animationClass[0]}></img>
 
@@ -75,10 +89,15 @@ export default function Home() {
 
         </section>
 
-        <section className='flex flex-wrap items-center justify-center h-[70rem] bg-secondarybg text-white'>
-          <h1 className='text-center w-full h-[1rem] mt-auto font-bold text-2xl mb-2'>Compre agora</h1>
+        <section className='flex flex-wrap items-center justify-center h-full bg-secondarybg text-white'>
 
-          <div className='flex flex-wrap items-center justify-evenly  mx-2 xl:mx-48 2xl:mx-80'>
+          <button className={arrowBtn} onClick={handleArrowBtn}>
+            <MdKeyboardArrowDown className='text-9xl' />
+          </button>
+
+          <h1 className='text-center w-full h-[1rem] mt-32 font-bold text-2xl mb-12'>Compre agora</h1>
+
+          <div className='flex flex-wrap items-center justify-center  mx-2 mb-32 xl:mx-48 2xl:mx-96'>
             <div className='h-[8rem] md:h-[14rem] lg:h-[16rem] m-1 bg-white/10 shadow-2xl blur-[1px] hover:blur-0 overflow-hidden'>
               <img src='/carimg1.jpg' alt='car image'
               className='h-full hover:scale-125 transition duration-500 ease-in-out'></img>
@@ -123,21 +142,29 @@ export default function Home() {
 
         </section>
 
-        <section className='flex flex-wrap items-center justify-center h-[60rem] bg-tertiarybg text-white'>
+        <section className='flex flex-wrap items-center justify-center h-full bg-tertiarybg text-white'>
 
-          <div className='flex flex-wrap items-center justify-center w-3/4 mt-auto mb-1'>
-            <img src='/handshaking.jpg' alt='hands shaking'></img>
+          <div 
+          className='flex flex-wrap items-center justify-center
+          hover:brightness-110 transition duration-500 ease-in-out
+          w-3/4 mt-32 mb-1 mx-2 xl:mx-48 2xl:mx-96'>
+            <img src='/handshaking.jpg' alt='hands shaking'
+            className='rounded-md w-full'></img>
           </div>
 
-          <div className='flex flex-wrap items-center justify-left w-3/4 mt-1 mb-auto'>
-            <h1 className='font-bold text-2xl my-2'>Serviço de qualidade!</h1>
-            <p className='text-2xl my-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras faucibus ullamcorper accumsan. Nulla facilisis nulla sit amet mauris pharetra posuere.</p>
-            <button className='flex p-5 bg-green-600 text-3xl rounded-full leading-none my-2'>
-              <AiOutlineWhatsApp/>&nbsp;Chamar no WhatsApp</button>
+          <div className='flex flex-wrap items-center justify-left w-3/4 mt-1 mb-32 mx-2 xl:mx-48 2xl:mx-96'>
+            <h1 className='font-bold text-2xl w-full my-4'>Serviço de qualidade!</h1>
+            <p className='text-2xl my-4 w-full'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras faucibus ullamcorper accumsan. Nulla facilisis nulla sit amet mauris pharetra posuere.</p>
+            <button className='flex p-5 bg-green-600 text-2xl rounded-full leading-none my-4 hover:bg-green-500 transition duration-500 ease-in-out'>
+            <AiOutlineWhatsApp/>
+            &nbsp;Chamar no WhatsApp</button>
           </div>
 
         </section>
       </main>
+
+      <Footer />
+
     </>
   )
 }

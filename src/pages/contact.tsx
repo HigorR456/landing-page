@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 
 const contact = () => {
     return (
@@ -14,7 +15,15 @@ const contact = () => {
 
             <NavBar />
 
-            <div>Contact</div>
+            <section className='flex flex-wrap items-center justify-center h-[70rem] bg-secondarybg text-white'>
+                <h1 className='text-center w-full h-[1rem] mt-auto font-bold text-2xl mb-2'>Contato</h1>
+
+                <div className='flex flex-wrap items-center justify-center  mx-2 xl:mx-48 2xl:mx-80'>
+                </div>
+
+            </section>
+            
+            <Footer />
         </>
     );
 };
