@@ -1,3 +1,28 @@
+<div align='center'><img src='https://github.com/HigorR456/landing-page/assets/109878939/c05fb89b-2b5c-48d9-9f4e-036981eb8dda'/></div>
+
+
+<h2>About the project</h2>
+
+This project is a car sales website with minimalist design. Effects and animations on the homepage, responsiveness.
+
+👉Live demo: https://landing-page456.netlify.app/
+
+<h3>Build with:</h3>
+
+» React JS <br>
+» Next.js <br>
+» Tailwind CSS
+
+<h2>📸Screenshot of the Project</h2>
+<br>
+
+<div align='center'>
+<img src='https://github.com/HigorR456/landing-page/assets/109878939/39e5cc3b-352f-47b6-95fc-eb26c045d37d'/>
+</div>
+
+______________________________________________________________
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
